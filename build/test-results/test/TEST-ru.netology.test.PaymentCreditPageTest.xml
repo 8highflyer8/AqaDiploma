@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.netology.test.PaymentCreditPageTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-09-27T17:28:39" hostname="WIN-EQ0P68TLT0Q" time="0.472">
+  <properties/>
+  <testcase name="shouldShowRandomMonth()" classname="ru.netology.test.PaymentCreditPageTest" time="0.472"/>
+  <system-out><![CDATA[11
+2024-11-27
+24
+Ольга Соколова
+308
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
