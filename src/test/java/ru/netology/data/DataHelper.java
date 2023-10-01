@@ -69,6 +69,7 @@ public class DataHelper {
     @AllArgsConstructor
     public class UserData {
 
+        public String cardNumber;
         private String month;
         private String year;
         private String nameSurname;

@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.netology.test.PaymentCreditPageTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-09-27T17:28:39" hostname="WIN-EQ0P68TLT0Q" time="0.472">
+<testsuite name="ru.netology.test.PaymentCreditPageTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-10-01T14:06:54" hostname="WIN-EQ0P68TLT0Q" time="14.412">
   <properties/>
-  <testcase name="shouldShowRandomMonth()" classname="ru.netology.test.PaymentCreditPageTest" time="0.472"/>
-  <system-out><![CDATA[11
-2024-11-27
-24
-Ольга Соколова
-308
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
+  <testcase name="Should successfully pay from APPROVED card" classname="ru.netology.test.PaymentCreditPageTest" time="14.412"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+окт. 01, 2023 5:07:00 PM org.openqa.selenium.manager.SeleniumManager lambda$runCommand$1
+WARNING: The chromedriver version (116.0.5845.96) detected in PATH at C:\webdrivers\chromedriver.exe might not be compatible with the detected chrome version (117.0.5938.92); currently, chromedriver 117.0.5938.92 is recommended for chrome 117.*, so it is advised to delete the driver in PATH and retry
+окт. 01, 2023 5:07:06 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 117, so returning the closest version found: 115
+]]></system-err>
 </testsuite>
