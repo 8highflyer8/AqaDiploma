@@ -24,7 +24,8 @@ public class PaymentCreditPageTest {
     void shouldSuccessfulLogin() {
         var PaymentCreditPage = open("http://localhost:8080/", PaymentCreditPage.class);
         var CardInfo = DataHelper.getFirstCardNumberAndStatus();
-        PaymentCreditPage.validLogin();
+        PaymentCreditPage.validLogin(CardInfo);
+
 
 
 
