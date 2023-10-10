@@ -41,14 +41,39 @@ public class SQLHelper { private static QueryRunner runner = new QueryRunner();
 
 
     }
-
+*/
     @SneakyThrows
-    public static String getBlockingUser() {
-        var blockingStatus = "SELECT status FROM users LIMIT 1";
-        var conn = getConn();
-        var result = runner.query(conn, blockingStatus, new ScalarHandler<String>());
+    public static String getLastPayUserStatusMySQL() {
+        var payStatus = "SELECT status FROM payment_entity order by created desc LIMIT 1";
+        var conn = getConnMySql();
+        var result = runner.query(conn, payStatus, new ScalarHandler<String>());
         return result;
 
-    }*/
+    }
+    @SneakyThrows
+    public static int getLastPayUserAmountMySQL() {
+        var amount = "SELECT amount FROM payment_entity order by created desc LIMIT 1";
+        var conn = getConnMySql();
+        var result = runner.query(conn, amount, new ScalarHandler<Integer>());
+        return result;
 
+    }
+    @SneakyThrows
+    public static String getLastPayOnCreditUserStatusMySQL() {
+        var creditStatus = "SELECT status FROM credit_request_entity order by created desc LIMIT 1";
+        var conn = getConnMySql();
+        var result = runner.query(conn, creditStatus, new ScalarHandler<String>());
+        return result;
+
+    }
+
+    @SneakyThrows
+    public static int getLastPayOnCreditUserAmountMySQL() {
+        var approvedAmount = "SELECT amount FROM credit_request_entity order by created desc LIMIT 1";
+        var conn = getConnMySql();
+        var result = runner.query(conn, approvedAmount, new ScalarHandler<Integer>());
+        return result;
+
+    }
+  //SELECT amount,created,status  FROM payment_entity  order by created  desc limit 1
 }

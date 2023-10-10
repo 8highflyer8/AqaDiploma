@@ -29,6 +29,19 @@ public class CreditPage {
         continueButton.click();
         return new CreditPage();
     }
+    public CreditPage inValidPayCard(DataHelper.CardInfo info) {
+        cardNumberField.setValue(DataHelper.generateCardNumber());
+        monthField.setValue(DataHelper.generateRandomMonth());
+        yearField.setValue(DataHelper.generateRandomYear());
+        cardHolderField.setValue(DataHelper.generateFullName());
+        cvcField.setValue(DataHelper.generateCvc());
+        continueButton.click();
+        return new CreditPage();
+    }
+    public PaymentPage emptyField(DataHelper.CardInfo info) {
+        continueButton.click();
+        return new PaymentPage();
+    }
 
     public void verifySuccessPayVisibility() {
         successNotification.shouldBe(visible, Duration.ofSeconds(10));

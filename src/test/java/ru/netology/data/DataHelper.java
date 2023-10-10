@@ -57,6 +57,10 @@ public class DataHelper {
         return faker.number().digits(3);
     }
 
+    public static String generateCardNumber() {
+        return faker.business().creditCardNumber();
+    }
+
 
     @Value
     public static class CardInfo {
