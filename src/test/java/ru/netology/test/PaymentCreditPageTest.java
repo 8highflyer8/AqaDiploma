@@ -1,5 +1,6 @@
 package ru.netology.test;
 
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -8,6 +9,8 @@ import ru.netology.data.SQLHelper;
 import ru.netology.page.CreditPage;
 import ru.netology.page.MainPage;
 import ru.netology.page.PaymentPage;
+
+import java.util.concurrent.TimeUnit;
 
 import static com.codeborne.selenide.Selenide.open;
 import static ru.netology.data.SQLHelper.getLastPayUserStatusMySQL;
@@ -130,6 +133,7 @@ public class PaymentCreditPageTest {
         Assertions.assertEquals(0, PaymentAmount);
 
     }
+
     @Test
     @DisplayName("Should get MySQL status when pay on credit from APPROVED card")
     void shouldGetMySQLStatusWhenPayOnCreditFromApprovedCard() {

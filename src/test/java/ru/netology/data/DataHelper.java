@@ -49,8 +49,8 @@ public class DataHelper {
     }
 
     public static String generateFullName() {
-        return faker.name().firstName().replaceAll("ё","е") +" "
-                + faker.name().lastName().replaceAll("ё","е");
+        return faker.name().firstName().replaceAll("ё", "е") + " "
+                + faker.name().lastName().replaceAll("ё", "е");
     }
 
     public static String generateCvc() {
