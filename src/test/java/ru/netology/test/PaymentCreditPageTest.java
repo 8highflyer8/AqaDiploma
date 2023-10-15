@@ -1,13 +1,15 @@
 package ru.netology.test;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
+import com.codeborne.selenide.junit5.TextReportExtension;
+import io.qameta.allure.selenide.AllureSelenide;
 import lombok.SneakyThrows;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import ru.netology.data.DataHelper;
 import ru.netology.data.SQLHelper;
 import ru.netology.page.CreditPage;
 import ru.netology.page.MainPage;
+import io.qameta.allure.Allure;
 import ru.netology.page.PaymentPage;
 
 import java.util.concurrent.TimeUnit;
@@ -16,6 +18,15 @@ import static com.codeborne.selenide.Selenide.open;
 import static ru.netology.data.SQLHelper.getLastPayUserStatusMySQL;
 
 public class PaymentCreditPageTest {
+
+    @BeforeAll
+    static void setUpAll() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+    }
+     @AfterAll
+     static void tearDownAll() {
+        SelenideLogger.removeListener("allure");
+     }
 
     @Test
     @DisplayName("Should successfully pay from APPROVED card")
