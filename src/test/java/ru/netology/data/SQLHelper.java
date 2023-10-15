@@ -18,7 +18,7 @@ public class SQLHelper {
         return DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass");
     }
 
-    private static Connection getConnPostgres() throws SQLException {
+    private static Connection getConnPostgreSQL() throws SQLException {
         return DriverManager.getConnection("jdbc:postgresql://localhost:5432/app", "app", "pass");
     }
 
@@ -57,7 +57,7 @@ public class SQLHelper {
     public static String getLastPayUserStatusPostgreSQL() {
         Thread.sleep(10000);
         var payStatus = "SELECT status FROM payment_entity order by created desc LIMIT 1";
-        var conn = getConnPostgres();
+        var conn = getConnPostgreSQL();
         var result = runner.query(conn, payStatus, new ScalarHandler<String>());
         return result;
 
@@ -67,7 +67,7 @@ public class SQLHelper {
     public static int getLastPayUserAmountPostgreSQL() {
         Thread.sleep(10000);
         var amount = "SELECT amount FROM payment_entity order by created desc LIMIT 1";
-        var conn = getConnPostgres();
+        var conn = getConnPostgreSQL();
         var result = runner.query(conn, amount, new ScalarHandler<Integer>());
         return result;
 
@@ -77,7 +77,7 @@ public class SQLHelper {
     public static String getLastPayOnCreditUserStatusPostgreSQL() {
         Thread.sleep(10000);
         var creditStatus = "SELECT status FROM credit_request_entity order by created desc LIMIT 1";
-        var conn = getConnPostgres();
+        var conn = getConnPostgreSQL();
         var result = runner.query(conn, creditStatus, new ScalarHandler<String>());
         return result;
 

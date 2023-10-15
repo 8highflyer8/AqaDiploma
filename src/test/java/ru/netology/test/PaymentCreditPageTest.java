@@ -156,4 +156,69 @@ public class PaymentCreditPageTest {
 
     }
 
+    @Test
+    @DisplayName("Should get PostgreSQL status when pay from APPROVED card")
+    void shouldGetPostgreSQLStatusWhenPayFromApprovedCard() {
+        var CardInfo = DataHelper.getFirstCardNumberAndStatus();
+        var PaymentPage = MainPage.openPaymentPage(CardInfo);
+        PaymentPage.validPayCard(CardInfo);
+        var PaymentStatus = SQLHelper.getLastPayUserStatusPostgreSQL();
+        Assertions.assertEquals("APPROVED", PaymentStatus);
+
+    }
+
+    @Test
+    @DisplayName("Should get PostgreSQL amount when pay from APPROVED card")
+    void shouldGetPostgreSQLStatusAmountWhenPayFromApprovedCard() {
+        var CardInfo = DataHelper.getFirstCardNumberAndStatus();
+        var PaymentPage = MainPage.openPaymentPage(CardInfo);
+        PaymentPage.validPayCard(CardInfo);
+        var PaymentAmount = (SQLHelper.getLastPayUserAmountPostgreSQL());
+        Assertions.assertEquals(45000, PaymentAmount);
+    }
+
+    @Test
+    @DisplayName("Should get PostgreSQL status when pay from DECLINED card")
+    void shouldGetPostgreSQLStatusWhenPayFromDeclinedCard() {
+        var CardInfo = DataHelper.getSecondCardNumberAndStatus();
+        var PaymentPage = MainPage.openPaymentPage(CardInfo);
+        PaymentPage.validPayCard(CardInfo);
+        var PaymentStatus = SQLHelper.getLastPayUserStatusPostgreSQL();
+        Assertions.assertEquals("DECLINED", PaymentStatus);
+
+    }
+
+    @Test
+    @DisplayName("Should get PostgreSQL amount when pay from DECLINED card")
+    void shouldGetPostgreSQLStatusAndRightAmountWhenPayFromApprovedCard() {
+        var CardInfo = DataHelper.getSecondCardNumberAndStatus();
+        var PaymentPage = MainPage.openPaymentPage(CardInfo);
+        PaymentPage.validPayCard(CardInfo);
+        var PaymentAmount = (SQLHelper.getLastPayUserAmountPostgreSQL());
+        Assertions.assertEquals(0, PaymentAmount);
+
+    }
+
+    @Test
+    @DisplayName("Should get PostgreSQL status when pay on credit from APPROVED card")
+    void shouldGetPostgreSQLStatusWhenPayOnCreditFromApprovedCard() {
+        var CardInfo = DataHelper.getFirstCardNumberAndStatus();
+        var CreditPage = MainPage.openCreditPage(CardInfo);
+        CreditPage.validPayCard(CardInfo);
+        var CreditStatus = SQLHelper.getLastPayOnCreditUserStatusPostgreSQL();
+        Assertions.assertEquals("APPROVED", CreditStatus);
+
+    }
+
+    @Test
+    @DisplayName("Should get PostgreSQL status when pay on credit from DECLINED card")
+    void shouldGetPostgreSQLStatusWhenPayOnCreditFromDeclinedCard() {
+        var CardInfo = DataHelper.getSecondCardNumberAndStatus();
+        var CreditPage = MainPage.openCreditPage(CardInfo);
+        CreditPage.validPayCard(CardInfo);
+        var CreditStatus = SQLHelper.getLastPayOnCreditUserStatusPostgreSQL();
+        Assertions.assertEquals("DECLINED", CreditStatus);
+
+    }
+
 }
