@@ -6,11 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Value;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Locale;
 
 
@@ -81,5 +78,10 @@ public class DataHelper {
 
     }
 
+    @Value
+    public static class SQL {
+        private String cardNumber;
+        private String status;
+    }
 
 }

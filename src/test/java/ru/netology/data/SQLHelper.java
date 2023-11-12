@@ -9,17 +9,23 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class SQLHelper {
+
+    private static final String DBSQLUrl = System.getProperty("datasource.url");
+    private static final String DBPostgresQLUrl = System.getProperty("datasource.url2");
+    private static final String username = System.getProperty("username");
+    private static final String password = System.getProperty("password");
+
     private static QueryRunner runner = new QueryRunner();
 
     private SQLHelper() {
     }
 
-    private static Connection getConnMySql() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass");
+   private static Connection getConnMySql() throws SQLException {
+        return DriverManager.getConnection(DBSQLUrl,username,password);
     }
 
     private static Connection getConnPostgreSQL() throws SQLException {
-        return DriverManager.getConnection("jdbc:postgresql://localhost:5432/app", "app", "pass");
+        return DriverManager.getConnection(DBPostgresQLUrl,username,password);
     }
 
 
