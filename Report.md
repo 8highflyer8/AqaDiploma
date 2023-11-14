@@ -21,7 +21,7 @@
 ![img_2.png](img_2.png)
 ![img_3.png](img_3.png)
 
-Репорты по ссылке https://github.com/8highflyer8/AqaDiploma/issues  
+[Репорты](https://github.com/8highflyer8/AqaDiploma/issues)  
 В итоге занесено 7 баг-репортов (1 дефект был обнаружен при иследовательском ручном тестировании)  
 Отчеты можно сгенерировать с помощью Gradle, Allure командой  
 `./gradlew clean test --info` и затем после заверешения `./gradlew allureserve`
